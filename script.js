@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const response = await fetch("https://upload-backend.maamokun.workers.dev/", {
                     method: "POST",
                     body: formData,
+                    mode: "no-cors",
                     headers: {
                         "Expires-At": selectedRetention,
                     },
