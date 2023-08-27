@@ -2,23 +2,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const fileInput = document.getElementById("fileInput");
     const uploadButton = document.getElementById("uploadButton");
     const statusMessage = document.getElementById("statusMessage");
+    const retentionPeriod = document.getElementById("retentionPeriod");
 
     uploadButton.addEventListener("click", async () => {
         const file = fileInput.files[0];
+        const selectedRetention = retentionPeriod.value;
 
         if (file) {
             const formData = new FormData();
             formData.append("file", file);
 
             try {
-                const response = await fetch("https://x.mikn.dev/api/upload/", {
+                const response = await fetch("https://upload-backend.maamokun.workers.dev/", {
                     method: "POST",
                     body: formData,
                     headers: {
-                        "Format": "RANDOM",
-                        "Expires-At": "7d",
-                        "Authorization": "OrbRBy7jhgX3MUmfAw6tDBgO.MTY5MzE3NTE0MTk1Ng",
-                    }
+                        "Expires-At": selectedRetention,
+                    },
                 });
 
                 const data = await response.json();
