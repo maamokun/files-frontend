@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     body: formData,
                     headers: {
                         "Expires-At": selectedRetention,
-                        'Access-Control-Allow-Origin': 'https://upload.mikn.dev/',
                     },
                 });
 
